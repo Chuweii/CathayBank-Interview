@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF1E99182C75644E004015AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99172C75644E004015AB /* AppDelegate.swift */; };
+		EF1E991A2C75644E004015AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99192C75644E004015AB /* SceneDelegate.swift */; };
+		EF1E991C2C75644E004015AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E991B2C75644E004015AB /* ViewController.swift */; };
+		EF1E991F2C75644E004015AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1E991D2C75644E004015AB /* Main.storyboard */; };
+		EF1E99212C756450004015AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1E99202C756450004015AB /* Assets.xcassets */; };
+		EF1E99242C756450004015AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1E99222C756450004015AB /* LaunchScreen.storyboard */; };
+		EF1E992F2C756450004015AB /* CathayBankInterviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E992E2C756450004015AB /* CathayBankInterviewTests.swift */; };
+		EF1E99392C756450004015AB /* CathayBankInterviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99382C756450004015AB /* CathayBankInterviewUITests.swift */; };
+		EF1E993B2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E993A2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF1E992B2C756450004015AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF1E990C2C75644E004015AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF1E99132C75644E004015AB;
+			remoteInfo = CathayBankInterview;
+		};
+		EF1E99352C756450004015AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF1E990C2C75644E004015AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF1E99132C75644E004015AB;
+			remoteInfo = CathayBankInterview;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF1E99142C75644E004015AB /* CathayBankInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CathayBankInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1E99172C75644E004015AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF1E99192C75644E004015AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EF1E991B2C75644E004015AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF1E991E2C75644E004015AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF1E99202C756450004015AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF1E99232C756450004015AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF1E99252C756450004015AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF1E992A2C756450004015AB /* CathayBankInterviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CathayBankInterviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1E992E2C756450004015AB /* CathayBankInterviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CathayBankInterviewTests.swift; sourceTree = "<group>"; };
+		EF1E99342C756450004015AB /* CathayBankInterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CathayBankInterviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1E99382C756450004015AB /* CathayBankInterviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CathayBankInterviewUITests.swift; sourceTree = "<group>"; };
+		EF1E993A2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CathayBankInterviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF1E99112C75644E004015AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1E99272C756450004015AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1E99312C756450004015AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF1E990B2C75644E004015AB = {
+			isa = PBXGroup;
+			children = (
+				EF1E99162C75644E004015AB /* CathayBankInterview */,
+				EF1E992D2C756450004015AB /* CathayBankInterviewTests */,
+				EF1E99372C756450004015AB /* CathayBankInterviewUITests */,
+				EF1E99152C75644E004015AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF1E99152C75644E004015AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99142C75644E004015AB /* CathayBankInterview.app */,
+				EF1E992A2C756450004015AB /* CathayBankInterviewTests.xctest */,
+				EF1E99342C756450004015AB /* CathayBankInterviewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF1E99162C75644E004015AB /* CathayBankInterview */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99172C75644E004015AB /* AppDelegate.swift */,
+				EF1E99192C75644E004015AB /* SceneDelegate.swift */,
+				EF1E991B2C75644E004015AB /* ViewController.swift */,
+				EF1E991D2C75644E004015AB /* Main.storyboard */,
+				EF1E99202C756450004015AB /* Assets.xcassets */,
+				EF1E99222C756450004015AB /* LaunchScreen.storyboard */,
+				EF1E99252C756450004015AB /* Info.plist */,
+			);
+			path = CathayBankInterview;
+			sourceTree = "<group>";
+		};
+		EF1E992D2C756450004015AB /* CathayBankInterviewTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E992E2C756450004015AB /* CathayBankInterviewTests.swift */,
+			);
+			path = CathayBankInterviewTests;
+			sourceTree = "<group>";
+		};
+		EF1E99372C756450004015AB /* CathayBankInterviewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99382C756450004015AB /* CathayBankInterviewUITests.swift */,
+				EF1E993A2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift */,
+			);
+			path = CathayBankInterviewUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF1E99132C75644E004015AB /* CathayBankInterview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF1E993E2C756450004015AB /* Build configuration list for PBXNativeTarget "CathayBankInterview" */;
+			buildPhases = (
+				EF1E99102C75644E004015AB /* Sources */,
+				EF1E99112C75644E004015AB /* Frameworks */,
+				EF1E99122C75644E004015AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CathayBankInterview;
+			productName = CathayBankInterview;
+			productReference = EF1E99142C75644E004015AB /* CathayBankInterview.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF1E99292C756450004015AB /* CathayBankInterviewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF1E99412C756450004015AB /* Build configuration list for PBXNativeTarget "CathayBankInterviewTests" */;
+			buildPhases = (
+				EF1E99262C756450004015AB /* Sources */,
+				EF1E99272C756450004015AB /* Frameworks */,
+				EF1E99282C756450004015AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF1E992C2C756450004015AB /* PBXTargetDependency */,
+			);
+			name = CathayBankInterviewTests;
+			productName = CathayBankInterviewTests;
+			productReference = EF1E992A2C756450004015AB /* CathayBankInterviewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF1E99332C756450004015AB /* CathayBankInterviewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF1E99442C756450004015AB /* Build configuration list for PBXNativeTarget "CathayBankInterviewUITests" */;
+			buildPhases = (
+				EF1E99302C756450004015AB /* Sources */,
+				EF1E99312C756450004015AB /* Frameworks */,
+				EF1E99322C756450004015AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF1E99362C756450004015AB /* PBXTargetDependency */,
+			);
+			name = CathayBankInterviewUITests;
+			productName = CathayBankInterviewUITests;
+			productReference = EF1E99342C756450004015AB /* CathayBankInterviewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF1E990C2C75644E004015AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					EF1E99132C75644E004015AB = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					EF1E99292C756450004015AB = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = EF1E99132C75644E004015AB;
+					};
+					EF1E99332C756450004015AB = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = EF1E99132C75644E004015AB;
+					};
+				};
+			};
+			buildConfigurationList = EF1E990F2C75644E004015AB /* Build configuration list for PBXProject "CathayBankInterview" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF1E990B2C75644E004015AB;
+			productRefGroup = EF1E99152C75644E004015AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF1E99132C75644E004015AB /* CathayBankInterview */,
+				EF1E99292C756450004015AB /* CathayBankInterviewTests */,
+				EF1E99332C756450004015AB /* CathayBankInterviewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF1E99122C75644E004015AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1E99242C756450004015AB /* LaunchScreen.storyboard in Resources */,
+				EF1E99212C756450004015AB /* Assets.xcassets in Resources */,
+				EF1E991F2C75644E004015AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1E99282C756450004015AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1E99322C756450004015AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF1E99102C75644E004015AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1E991C2C75644E004015AB /* ViewController.swift in Sources */,
+				EF1E99182C75644E004015AB /* AppDelegate.swift in Sources */,
+				EF1E991A2C75644E004015AB /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1E99262C756450004015AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1E992F2C756450004015AB /* CathayBankInterviewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1E99302C756450004015AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1E993B2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift in Sources */,
+				EF1E99392C756450004015AB /* CathayBankInterviewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF1E992C2C756450004015AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF1E99132C75644E004015AB /* CathayBankInterview */;
+			targetProxy = EF1E992B2C756450004015AB /* PBXContainerItemProxy */;
+		};
+		EF1E99362C756450004015AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF1E99132C75644E004015AB /* CathayBankInterview */;
+			targetProxy = EF1E99352C756450004015AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF1E991D2C75644E004015AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF1E991E2C75644E004015AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF1E99222C756450004015AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF1E99232C756450004015AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF1E993C2C756450004015AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF1E993D2C756450004015AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF1E993F2C756450004015AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2X5XPADK8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CathayBankInterview/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chu.CathayBankInterview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF1E99402C756450004015AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2X5XPADK8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CathayBankInterview/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chu.CathayBankInterview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EF1E99422C756450004015AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2X5XPADK8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chu.CathayBankInterviewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CathayBankInterview.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CathayBankInterview";
+			};
+			name = Debug;
+		};
+		EF1E99432C756450004015AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2X5XPADK8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chu.CathayBankInterviewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CathayBankInterview.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CathayBankInterview";
+			};
+			name = Release;
+		};
+		EF1E99452C756450004015AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2X5XPADK8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chu.CathayBankInterviewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CathayBankInterview;
+			};
+			name = Debug;
+		};
+		EF1E99462C756450004015AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2X5XPADK8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chu.CathayBankInterviewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CathayBankInterview;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF1E990F2C75644E004015AB /* Build configuration list for PBXProject "CathayBankInterview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1E993C2C756450004015AB /* Debug */,
+				EF1E993D2C756450004015AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF1E993E2C756450004015AB /* Build configuration list for PBXNativeTarget "CathayBankInterview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1E993F2C756450004015AB /* Debug */,
+				EF1E99402C756450004015AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF1E99412C756450004015AB /* Build configuration list for PBXNativeTarget "CathayBankInterviewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1E99422C756450004015AB /* Debug */,
+				EF1E99432C756450004015AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF1E99442C756450004015AB /* Build configuration list for PBXNativeTarget "CathayBankInterviewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1E99452C756450004015AB /* Debug */,
+				EF1E99462C756450004015AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF1E990C2C75644E004015AB /* Project object */;
+}
