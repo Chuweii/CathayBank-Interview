@@ -9,13 +9,34 @@
 /* Begin PBXBuildFile section */
 		EF1E99182C75644E004015AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99172C75644E004015AB /* AppDelegate.swift */; };
 		EF1E991A2C75644E004015AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99192C75644E004015AB /* SceneDelegate.swift */; };
-		EF1E991C2C75644E004015AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E991B2C75644E004015AB /* ViewController.swift */; };
+		EF1E991C2C75644E004015AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E991B2C75644E004015AB /* HomeViewController.swift */; };
 		EF1E991F2C75644E004015AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1E991D2C75644E004015AB /* Main.storyboard */; };
 		EF1E99212C756450004015AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1E99202C756450004015AB /* Assets.xcassets */; };
 		EF1E99242C756450004015AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1E99222C756450004015AB /* LaunchScreen.storyboard */; };
 		EF1E992F2C756450004015AB /* CathayBankInterviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E992E2C756450004015AB /* CathayBankInterviewTests.swift */; };
 		EF1E99392C756450004015AB /* CathayBankInterviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99382C756450004015AB /* CathayBankInterviewUITests.swift */; };
 		EF1E993B2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E993A2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift */; };
+		EF1E994A2C75648F004015AB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF1E99492C75648F004015AB /* SnapKit */; };
+		EF1E994C2C756591004015AB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E994B2C756591004015AB /* TabBarViewController.swift */; };
+		EF1E99522C75662D004015AB /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99512C75662D004015AB /* TabItem.swift */; };
+		EF1E99552C75684A004015AB /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99542C75684A004015AB /* TabBarItemView.swift */; };
+		EF1E99582C757EE9004015AB /* BalanceAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99572C757EE9004015AB /* BalanceAccountView.swift */; };
+		EF1E995E2C758033004015AB /* AccountBalanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E995D2C758033004015AB /* AccountBalanceRepository.swift */; };
+		EF1E99602C75806F004015AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E995F2C75806F004015AB /* APIManager.swift */; };
+		EF1E99622C758116004015AB /* AmountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99612C758116004015AB /* AmountResponse.swift */; };
+		EF1E996B2C7588CB004015AB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E996A2C7588CB004015AB /* String+.swift */; };
+		EF1E996D2C758AA1004015AB /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E996C2C758AA1004015AB /* UIColor+.swift */; };
+		EF1E99732C75A32F004015AB /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99722C75A32F004015AB /* DataRepository.swift */; };
+		EF1E99752C75A34C004015AB /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99742C75A34C004015AB /* NotificationResponse.swift */; };
+		EF1E99772C75A38A004015AB /* BannerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99762C75A38A004015AB /* BannerResponse.swift */; };
+		EF1E99792C75A3A6004015AB /* FavoriteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99782C75A3A6004015AB /* FavoriteResponse.swift */; };
+		EF1E997B2C75A402004015AB /* MyFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E997A2C75A402004015AB /* MyFavoriteView.swift */; };
+		EF1E997D2C75A483004015AB /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E997C2C75A483004015AB /* FavoriteCollectionViewCell.swift */; };
+		EF1E99812C75BC82004015AB /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99802C75BC82004015AB /* NotificationViewController.swift */; };
+		EF1E99832C75BCE1004015AB /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99822C75BCE1004015AB /* NotificationTableViewCell.swift */; };
+		EF1E998B2C761BE9004015AB /* AdBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E998A2C761BE9004015AB /* AdBannerView.swift */; };
+		EF1E998D2C761C8D004015AB /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E998C2C761C8D004015AB /* UIImageView+.swift */; };
+		EF1E99912C7623A1004015AB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99902C7623A1004015AB /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +60,7 @@
 		EF1E99142C75644E004015AB /* CathayBankInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CathayBankInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1E99172C75644E004015AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF1E99192C75644E004015AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EF1E991B2C75644E004015AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF1E991B2C75644E004015AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF1E991E2C75644E004015AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF1E99202C756450004015AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF1E99232C756450004015AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +70,26 @@
 		EF1E99342C756450004015AB /* CathayBankInterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CathayBankInterviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1E99382C756450004015AB /* CathayBankInterviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CathayBankInterviewUITests.swift; sourceTree = "<group>"; };
 		EF1E993A2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CathayBankInterviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF1E994B2C756591004015AB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		EF1E99512C75662D004015AB /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		EF1E99542C75684A004015AB /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
+		EF1E99572C757EE9004015AB /* BalanceAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceAccountView.swift; sourceTree = "<group>"; };
+		EF1E995D2C758033004015AB /* AccountBalanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBalanceRepository.swift; sourceTree = "<group>"; };
+		EF1E995F2C75806F004015AB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		EF1E99612C758116004015AB /* AmountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountResponse.swift; sourceTree = "<group>"; };
+		EF1E996A2C7588CB004015AB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		EF1E996C2C758AA1004015AB /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		EF1E99722C75A32F004015AB /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
+		EF1E99742C75A34C004015AB /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
+		EF1E99762C75A38A004015AB /* BannerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerResponse.swift; sourceTree = "<group>"; };
+		EF1E99782C75A3A6004015AB /* FavoriteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteResponse.swift; sourceTree = "<group>"; };
+		EF1E997A2C75A402004015AB /* MyFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteView.swift; sourceTree = "<group>"; };
+		EF1E997C2C75A483004015AB /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF1E99802C75BC82004015AB /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		EF1E99822C75BCE1004015AB /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		EF1E998A2C761BE9004015AB /* AdBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerView.swift; sourceTree = "<group>"; };
+		EF1E998C2C761C8D004015AB /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		EF1E99902C7623A1004015AB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1E994A2C75648F004015AB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +125,7 @@
 				EF1E992D2C756450004015AB /* CathayBankInterviewTests */,
 				EF1E99372C756450004015AB /* CathayBankInterviewUITests */,
 				EF1E99152C75644E004015AB /* Products */,
+				EF1E99482C75648F004015AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +142,14 @@
 		EF1E99162C75644E004015AB /* CathayBankInterview */ = {
 			isa = PBXGroup;
 			children = (
-				EF1E99172C75644E004015AB /* AppDelegate.swift */,
-				EF1E99192C75644E004015AB /* SceneDelegate.swift */,
-				EF1E991B2C75644E004015AB /* ViewController.swift */,
-				EF1E991D2C75644E004015AB /* Main.storyboard */,
-				EF1E99202C756450004015AB /* Assets.xcassets */,
-				EF1E99222C756450004015AB /* LaunchScreen.storyboard */,
+				EF1E995C2C758025004015AB /* Repository */,
+				EF1E994E2C7565D8004015AB /* Manager */,
+				EF1E994D2C7565C5004015AB /* ViewController */,
+				EF1E99592C757FC4004015AB /* ViewModel */,
+				EF1E99532C756826004015AB /* Views */,
+				EF1E99502C756618004015AB /* Models */,
+				EF1E99672C75858A004015AB /* Extension */,
+				EF1E994F2C7565E3004015AB /* Others */,
 				EF1E99252C756450004015AB /* Info.plist */,
 			);
 			path = CathayBankInterview;
@@ -127,6 +172,111 @@
 			path = CathayBankInterviewUITests;
 			sourceTree = "<group>";
 		};
+		EF1E99482C75648F004015AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF1E994D2C7565C5004015AB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E994B2C756591004015AB /* TabBarViewController.swift */,
+				EF1E991B2C75644E004015AB /* HomeViewController.swift */,
+				EF1E99802C75BC82004015AB /* NotificationViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EF1E994E2C7565D8004015AB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99172C75644E004015AB /* AppDelegate.swift */,
+				EF1E99192C75644E004015AB /* SceneDelegate.swift */,
+				EF1E995F2C75806F004015AB /* APIManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		EF1E994F2C7565E3004015AB /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99202C756450004015AB /* Assets.xcassets */,
+				EF1E99222C756450004015AB /* LaunchScreen.storyboard */,
+				EF1E991D2C75644E004015AB /* Main.storyboard */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		EF1E99502C756618004015AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99612C758116004015AB /* AmountResponse.swift */,
+				EF1E99742C75A34C004015AB /* NotificationResponse.swift */,
+				EF1E99762C75A38A004015AB /* BannerResponse.swift */,
+				EF1E99782C75A3A6004015AB /* FavoriteResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF1E99532C756826004015AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99922C76D982004015AB /* Cell */,
+				EF1E99842C75CFED004015AB /* TabBarItem */,
+				EF1E99572C757EE9004015AB /* BalanceAccountView.swift */,
+				EF1E997A2C75A402004015AB /* MyFavoriteView.swift */,
+				EF1E998A2C761BE9004015AB /* AdBannerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF1E99592C757FC4004015AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99902C7623A1004015AB /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF1E995C2C758025004015AB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E995D2C758033004015AB /* AccountBalanceRepository.swift */,
+				EF1E99722C75A32F004015AB /* DataRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EF1E99672C75858A004015AB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E996A2C7588CB004015AB /* String+.swift */,
+				EF1E996C2C758AA1004015AB /* UIColor+.swift */,
+				EF1E998C2C761C8D004015AB /* UIImageView+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EF1E99842C75CFED004015AB /* TabBarItem */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99512C75662D004015AB /* TabItem.swift */,
+				EF1E99542C75684A004015AB /* TabBarItemView.swift */,
+			);
+			path = TabBarItem;
+			sourceTree = "<group>";
+		};
+		EF1E99922C76D982004015AB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E99822C75BCE1004015AB /* NotificationTableViewCell.swift */,
+				EF1E997C2C75A483004015AB /* FavoriteCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +293,9 @@
 			dependencies = (
 			);
 			name = CathayBankInterview;
+			packageProductDependencies = (
+				EF1E99492C75648F004015AB /* SnapKit */,
+			);
 			productName = CathayBankInterview;
 			productReference = EF1E99142C75644E004015AB /* CathayBankInterview.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +368,9 @@
 				Base,
 			);
 			mainGroup = EF1E990B2C75644E004015AB;
+			packageReferences = (
+				EF1E99472C756478004015AB /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = EF1E99152C75644E004015AB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,9 +414,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF1E991C2C75644E004015AB /* ViewController.swift in Sources */,
+				EF1E994C2C756591004015AB /* TabBarViewController.swift in Sources */,
+				EF1E991C2C75644E004015AB /* HomeViewController.swift in Sources */,
+				EF1E99602C75806F004015AB /* APIManager.swift in Sources */,
+				EF1E99582C757EE9004015AB /* BalanceAccountView.swift in Sources */,
 				EF1E99182C75644E004015AB /* AppDelegate.swift in Sources */,
+				EF1E997D2C75A483004015AB /* FavoriteCollectionViewCell.swift in Sources */,
+				EF1E99832C75BCE1004015AB /* NotificationTableViewCell.swift in Sources */,
+				EF1E99752C75A34C004015AB /* NotificationResponse.swift in Sources */,
+				EF1E99522C75662D004015AB /* TabItem.swift in Sources */,
+				EF1E99792C75A3A6004015AB /* FavoriteResponse.swift in Sources */,
+				EF1E99912C7623A1004015AB /* HomeViewModel.swift in Sources */,
+				EF1E99812C75BC82004015AB /* NotificationViewController.swift in Sources */,
 				EF1E991A2C75644E004015AB /* SceneDelegate.swift in Sources */,
+				EF1E998B2C761BE9004015AB /* AdBannerView.swift in Sources */,
+				EF1E995E2C758033004015AB /* AccountBalanceRepository.swift in Sources */,
+				EF1E99772C75A38A004015AB /* BannerResponse.swift in Sources */,
+				EF1E99732C75A32F004015AB /* DataRepository.swift in Sources */,
+				EF1E99622C758116004015AB /* AmountResponse.swift in Sources */,
+				EF1E998D2C761C8D004015AB /* UIImageView+.swift in Sources */,
+				EF1E996D2C758AA1004015AB /* UIColor+.swift in Sources */,
+				EF1E996B2C7588CB004015AB /* String+.swift in Sources */,
+				EF1E997B2C75A402004015AB /* MyFavoriteView.swift in Sources */,
+				EF1E99552C75684A004015AB /* TabBarItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +783,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF1E99472C756478004015AB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = exactVersion;
+				version = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF1E99492C75648F004015AB /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF1E99472C756478004015AB /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF1E990C2C75644E004015AB /* Project object */;
 }

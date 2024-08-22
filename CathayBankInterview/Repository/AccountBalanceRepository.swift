@@ -7,9 +7,11 @@
 
 import Foundation
 
-class AccountBalanceRepository {    
+final class AccountBalanceRepository {    
+    private let apiManager: APIManager = .init()
+
     private func getTotalBalance(for endpoint: String, completion: @escaping (Result<Float, Error>) -> Void) {
-        APIManager.shared.request(endpoint: endpoint, method: .get) { result in
+        apiManager.request(endpoint: endpoint, method: .get) { result in
             switch result {
             case .success(let data):
                 do {

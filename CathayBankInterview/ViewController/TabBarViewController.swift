@@ -12,44 +12,41 @@ class TabBarViewController: UIViewController {
     /// View Controller Type
     enum ViewControllerPage: Int {
         case Home
-        case Upcoming
-        case Search
-        case Download
+        case Account
+        case Location
+        case Service
     }
         
     // MARK: - Model
     
-    private let tabBarItems = [
-        TabBarItem(icon: "house", title: "Home"),
-        TabBarItem(icon: "play.circle", title: "Coming"),
-        TabBarItem(icon: "magnifyingglass.circle.fill", title: "Search"),
-        TabBarItem(icon: "arrow.down.to.line", title: "Download")
+    private let tabItems = [
+        TabItem(icon: "icon_home", title: "Home"),
+        TabItem(icon: "icon_account", title: "Account"),
+        TabItem(icon: "icon_location", title: "Location"),
+        TabItem(icon: "icon_service", title: "Service")
     ]
     
     // MARK: - Properties
     
     private var currentIndex = 0
-    private let bottomStackHeight: CGFloat = 80
+    private let bottomStackHeight: CGFloat = 50
 
-    // MARK: - UIElements
+    // MARK: - UI Component
     
     private lazy var homeViewController = UINavigationController(rootViewController: HomeViewController())
-    private let upcomingViewController = UINavigationController(rootViewController: UpcomingViewController())
-    private let searchViewController = UINavigationController(rootViewController: SearchViewController())
-    private let downloadViewController = UINavigationController(rootViewController: DownloadViewController())
     private let bottomStack = UIStackView()
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupChildViews()
-        updateChildViews(pageIndex: ViewControllerPage(rawValue: currentIndex) ?? .Home)
+        setupViews()
+        updateViews(pageIndex: ViewControllerPage(rawValue: currentIndex) ?? .Home)
     }
     
     // MARK: - Setup View
     
-    private func setupChildViews() {
+    private func setupViews() {
         view.backgroundColor = .white
         view.addSubview(homeViewController.view)
         homeViewController.didMove(toParent: self)
@@ -58,11 +55,11 @@ class TabBarViewController: UIViewController {
     }
     
     private func createItem() {
-        tabBarItems.forEach { model in
-            let item = TabBarItemView(image: model.icon, title: model.title)
-            item.isSelected = false
-            item.delegate = self
-            bottomStack.addArrangedSubview(item)
+        tabItems.forEach { model in
+            let itemView = TabBarItemView(image: model.icon, title: model.title)
+            itemView.isSelected = false
+            itemView.delegate = self
+            bottomStack.addArrangedSubview(itemView)
         }
         
         let itemView = bottomStack.arrangedSubviews[currentIndex] as! TabBarItemView
@@ -70,10 +67,16 @@ class TabBarViewController: UIViewController {
     }
     
     private func setupBottomStack() {
-        bottomStack.backgroundColor = .black.withAlphaComponent(0.9)
+        bottomStack.backgroundColor = .white
         bottomStack.axis = .horizontal
+        bottomStack.spacing = 5
+        bottomStack.alignment = .fill
         bottomStack.distribution = .fillEqually
-        bottomStack.spacing = 0
+        bottomStack.layer.cornerRadius = 26
+        bottomStack.layer.shadowColor = UIColor.gray.cgColor
+        bottomStack.layer.shadowOpacity = 0.5
+        bottomStack.layer.shadowOffset = CGSize(width: 0, height: 2)
+        bottomStack.layer.shadowRadius = 5
         bottomStackLayout()
     }
     
@@ -81,113 +84,32 @@ class TabBarViewController: UIViewController {
         view.addSubview(bottomStack)
         
         bottomStack.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
+            make.left.equalTo(view.snp.left).offset(24)
+            make.right.equalTo(view.snp.right).offset(-24)
+            make.bottom.equalTo(view.snp.bottom).offset(-22)
             make.height.equalTo(bottomStackHeight)
         }
     }
     
-    private func updateChildViews(pageIndex: ViewControllerPage) {
+    private func updateViews(pageIndex: ViewControllerPage) {
         switch pageIndex {
         case .Home:
             navigationController?.navigationBar.isHidden = true
             viewLayout(view: homeViewController.view)
-            
-        case .Upcoming:
-            navigationController?.navigationBar.isHidden = true
-            viewLayout(view: upcomingViewController.view)
-
-        case .Search:
-            navigationController?.navigationBar.isHidden = true
-            viewLayout(view: searchViewController.view)
-
-        case .Download:
-            navigationController?.navigationBar.isHidden = true
-            viewLayout(view: downloadViewController.view)
+        default:
+            break
         }
     }
     
-    // MARK: - Methods
-
-    private func tabItemAnimate(_ view: TabBarItemView) {
-        UIView.animate(withDuration: 0.2) {
-            let transformSize = CGAffineTransform(scaleX: 2, y: 2)
-            view.transform = transformSize
-            
-            let originalSize = CGAffineTransform(scaleX: 1, y: 1)
-            view.transform = originalSize
-        }
-    }
-
-    /// View controller's view autolayout setting
-    private func viewLayout(view: UIView) {
+    func viewLayout(view: UIView) {
         view.snp.makeConstraints { make in
-            make.left.right.top.equalTo(self.view)
-            make.bottom.equalTo(bottomStack.snp.top)
+            make.edges.equalToSuperview()
         }
-    }
-    
-    // MARK: - Event
-    
-    @objc
-    func showProfile() {
-        print("show profile...")
     }
 }
 
 // MARK: - TabBarItemViewDelegate
 
 extension TabBarViewController: TabBarItemViewDelegate {
-    func tapHandler(_ view: TabBarItemView) {
-        let tappedIndex = bottomStack.arrangedSubviews.firstIndex(where: { $0 == view }) ?? 0
-        let tappedPage = ViewControllerPage(rawValue: tappedIndex) ?? .Home
-
-        if tappedIndex == currentIndex {
-            // If user in current page
-            switch tappedPage {
-            case .Home:
-                homeViewController.popToRootViewController(animated: true)
-            case .Upcoming:
-                upcomingViewController.popToRootViewController(animated: true)
-            case .Search:
-                searchViewController.popToRootViewController(animated: true)
-            case .Download:
-                downloadViewController.popToRootViewController(animated: true)
-            }
-        } else {
-            let allView = bottomStack.arrangedSubviews[currentIndex] as! TabBarItemView
-            allView.isSelected = false
-            view.isSelected = true
-            currentIndex = tappedIndex
-            setCurrentVC(pageIndex: tappedPage)
-        }
-            
-        tabItemAnimate(view)
-    }
-    
-    /// Change ViewControllers
-    /// - Parameter pageIndex: view controllers page index
-    private func setCurrentVC(pageIndex: ViewControllerPage) {
-        view.subviews.forEach { $0.removeFromSuperview() }
-        setupBottomStack()
-        
-        switch pageIndex {
-        case .Home:
-            view.addSubview(homeViewController.view)
-            searchViewController.didMove(toParent: self)
-            
-        case .Upcoming:
-            view.addSubview(upcomingViewController.view)
-            searchViewController.didMove(toParent: self)
-            
-        case .Search:
-            view.addSubview(searchViewController.view)
-            searchViewController.didMove(toParent: self)
-            
-        case .Download:
-            view.addSubview(downloadViewController.view)
-            searchViewController.didMove(toParent: self)
-        }
-        updateChildViews(pageIndex: ViewControllerPage(rawValue: currentIndex) ?? .Home)
-    }
+    func tapHandler(_ view: TabBarItemView) { }
 }
-

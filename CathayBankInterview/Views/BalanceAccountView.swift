@@ -15,7 +15,7 @@ class BalanceAccountView: UIView {
         super.init(frame: frame)
         backgroundColor = .clear
         setupViews()
-        setupConstraint()
+        setConstraint()
     }
     
     required init?(coder: NSCoder) {
@@ -109,44 +109,57 @@ class BalanceAccountView: UIView {
         eyeButton.addTarget(self, action: #selector(eyeAmountAction), for: .touchUpInside)
     }
     
-    private func setupConstraint() {
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 24),
-            
-            eyeButton.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: 8),
-            eyeButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            eyeButton.heightAnchor.constraint(equalToConstant: 24),
-            eyeButton.widthAnchor.constraint(equalToConstant: 24),
-            
-            usdTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
-            usdTitleLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            
-            // show
-            usdSubTitleLabel.topAnchor.constraint(equalTo: usdTitleLabel.bottomAnchor),
-            usdSubTitleLabel.leftAnchor.constraint(equalTo: usdTitleLabel.leftAnchor),
-            usdSubTitleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -24),
-            
-            // hide
-            usdSubHideTiteLabel.topAnchor.constraint(equalTo: usdTitleLabel.bottomAnchor),
-            usdSubHideTiteLabel.leftAnchor.constraint(equalTo: usdTitleLabel.leftAnchor),
-            usdSubHideTiteLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -24),
-            
-            // show
-            khrTitleLabel.topAnchor.constraint(equalTo: usdSubTitleLabel.bottomAnchor, constant: 8),
-            khrTitleLabel.leftAnchor.constraint(equalTo: usdSubTitleLabel.leftAnchor),
-            
-            // hide
-            khrSubTitleLabel.topAnchor.constraint(equalTo: khrTitleLabel.bottomAnchor),
-            khrSubTitleLabel.leftAnchor.constraint(equalTo: khrTitleLabel.leftAnchor),
-            khrSubTitleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -24),
-            khrSubTitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            
-            khrSubHideTiteLabel.topAnchor.constraint(equalTo: khrTitleLabel.bottomAnchor),
-            khrSubHideTiteLabel.leftAnchor.constraint(equalTo: khrTitleLabel.leftAnchor),
-            khrSubHideTiteLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -24),
-            khrSubHideTiteLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-        ])
+    private func setConstraint() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top).offset(12)
+            make.leading.equalTo(self.snp.leading).offset(24)
+        }
+        
+        eyeButton.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel.snp.trailing).offset(8)
+            make.centerY.equalTo(titleLabel.snp.centerY)
+            make.height.width.equalTo(24)
+        }
+        
+        usdTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(16)
+            make.leading.equalTo(titleLabel.snp.leading)
+        }
+        
+        // show
+        usdSubTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(usdTitleLabel.snp.bottom)
+            make.leading.equalTo(usdTitleLabel.snp.leading)
+            make.trailing.equalTo(self.snp.trailing).offset(-24)
+        }
+        
+        // hide
+        usdSubHideTiteLabel.snp.makeConstraints { make in
+            make.top.equalTo(usdTitleLabel.snp.bottom)
+            make.leading.equalTo(usdTitleLabel.snp.leading)
+            make.trailing.equalTo(self.snp.trailing).offset(-24)
+        }
+        
+        // show
+        khrTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(usdSubTitleLabel.snp.bottom).offset(8)
+            make.leading.equalTo(usdSubTitleLabel.snp.leading)
+        }
+        
+        // hide
+        khrSubTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(khrTitleLabel.snp.bottom)
+            make.leading.equalTo(khrTitleLabel.snp.leading)
+            make.trailing.equalTo(self.snp.trailing).offset(-24)
+            make.bottom.equalTo(self.snp.bottom).offset(-10)
+        }
+        
+        khrSubHideTiteLabel.snp.makeConstraints { make in
+            make.top.equalTo(khrTitleLabel.snp.bottom)
+            make.leading.equalTo(khrTitleLabel.snp.leading)
+            make.trailing.equalTo(self.snp.trailing).offset(-24)
+            make.bottom.equalTo(self.snp.bottom).offset(-10)
+        }
     }
     
     @objc

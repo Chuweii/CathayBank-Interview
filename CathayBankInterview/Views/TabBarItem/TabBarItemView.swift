@@ -44,7 +44,7 @@ class TabBarItemView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        autolayout()
+        setConstraint()
     }
     
     // MARK: - Methods
@@ -84,7 +84,7 @@ class TabBarItemView: UIView {
         addSubview(containerView)
     }
     
-    private func autolayout() {
+    private func         setConstraint() {
         iconImageView.snp.makeConstraints { make in
             make.size.equalTo(25)
             make.centerX.equalToSuperview()

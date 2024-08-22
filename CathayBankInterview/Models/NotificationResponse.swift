@@ -23,3 +23,12 @@ struct NotificationModel: Codable {
     var title: String
     var message: String
 }
+
+struct EmptyNotificationResponse: Codable {
+    let msgCode: String
+    let msgContent: String
+    let result: EmptyData
+}
+
+struct EmptyData: Codable {
+}

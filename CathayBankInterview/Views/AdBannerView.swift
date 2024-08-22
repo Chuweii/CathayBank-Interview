@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-class AdBannerTableViewCell: UIView {
-    private var adBannerArray: [BannerModel] = []
+class AdBannerView: UIView {
+    private var adBanners: [BannerModel] = []
     private var timer: Timer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        setupConstraint()
+        setConstraint()
         setUpCollcetionView()
     }
     
@@ -43,7 +43,6 @@ class AdBannerTableViewCell: UIView {
         return pageControl
     }()
     
-    //MARK: - setup
     private func setupViews() {
         let viewsToAdd: [UIView] = [
             collectionView,
@@ -52,24 +51,21 @@ class AdBannerTableViewCell: UIView {
         viewsToAdd.forEach { self.addSubview($0) }
     }
     
-    private func setupConstraint() {
-        let topContentViewAnchor = self.topAnchor
-        let leftContentViewAnchor = self.leftAnchor
-        let rightContentViewAnchor = self.rightAnchor
-        let bottomContentViewAnchor = self.bottomAnchor
+    private func setConstraint() {
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.leading.equalTo(self.snp.leading).offset(24)
+            make.trailing.equalTo(self.snp.trailing).offset(-24)
+            make.height.equalTo(100)
+        }
         
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: topContentViewAnchor),
-            collectionView.leftAnchor.constraint(equalTo: leftContentViewAnchor, constant: 24),
-            collectionView.rightAnchor.constraint(equalTo: rightContentViewAnchor, constant: -24),
-            collectionView.heightAnchor.constraint(equalToConstant: 100),
-            
-            pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 4),
-            pageControl.leftAnchor.constraint(equalTo: collectionView.leftAnchor),
-            pageControl.rightAnchor.constraint(equalTo: collectionView.rightAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: bottomContentViewAnchor, constant: -4),
-            pageControl.heightAnchor.constraint(equalToConstant: 20),
-        ])
+        pageControl.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom).offset(4)
+            make.leading.equalTo(collectionView.snp.leading)
+            make.trailing.equalTo(collectionView.snp.trailing)
+            make.bottom.equalTo(self.snp.bottom).offset(-4)
+            make.height.equalTo(20)
+        }
     }
     
     private func setUpCollcetionView() {
@@ -79,20 +75,18 @@ class AdBannerTableViewCell: UIView {
         collectionView.register(AdBannerCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: AdBannerCollectionViewCell.self))
     }
     
-    func configure(isFirstLogin: Bool, bannerArray: [BannerModel]) {
-        self.adBannerArray = bannerArray
+    func configure(isFirstLogin: Bool, adBanners: [BannerModel]) {
+        self.adBanners = adBanners
         collectionView.reloadData()
         if isFirstLogin {
             startAutoScroll()
         }
     }
     
-    // 自動輪播 ad View
     func startAutoScroll() {
         timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
     }
     
-    //TODO: 停止機制
     func stopAutoScroll() {
         timer?.invalidate()
         timer = nil
@@ -100,7 +94,7 @@ class AdBannerTableViewCell: UIView {
     
     @objc private func scrollToNextPage() {
         let currentPage = pageControl.currentPage
-        let nextPage = (currentPage + 1) % adBannerArray.count
+        let nextPage = (currentPage + 1) % adBanners.count
         
         let nextIndexPath = IndexPath(item: nextPage, section: 0)
         collectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
@@ -109,10 +103,11 @@ class AdBannerTableViewCell: UIView {
     }
 }
 
-//MARK: - CollectionView
-extension AdBannerTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//MARK: - CollectionViewDelegate
+
+extension AdBannerView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return adBannerArray.count
+        return adBanners.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -120,13 +115,12 @@ extension AdBannerTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
             return UICollectionViewCell()
         }
         
-        cell.configure(image: adBannerArray[indexPath.row].linkUrl)
-        pageControl.numberOfPages = adBannerArray.count
+        cell.configure(image: adBanners[indexPath.row].linkUrl)
+        pageControl.numberOfPages = adBanners.count
         
         return cell
     }
     
-    // UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -138,13 +132,15 @@ extension AdBannerTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 //MARK: - UIScrollViewDelegate
-extension AdBannerTableViewCell: UIScrollViewDelegate {
-    // CollectionView 繼承自 ScrollView。可直接使用
+
+extension AdBannerView: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.frame.size.width + 0.6
         pageControl.currentPage = Int(page)
     }
 }
+
+//MARK: - AdBannerCollectionViewCell
 
 class AdBannerCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
@@ -154,10 +150,9 @@ class AdBannerCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        setupConstraint()
+        setConstraint()
     }
     
-    //MARK: - UI
     private let adImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -166,27 +161,21 @@ class AdBannerCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    //MARK: - setup
     private func setupViews() {
         contentView.addSubview(adImageView)
     }
     
-    private func setupConstraint() {
-        let topContentViewAnchor = contentView.topAnchor
-        let leftContentViewAnchor = contentView.leftAnchor
-        let rightContentViewAnchor = contentView.rightAnchor
-        let bottomContentViewAnchor = contentView.bottomAnchor
-        
-        NSLayoutConstraint.activate([
-            adImageView.topAnchor.constraint(equalTo: topContentViewAnchor),
-            adImageView.leftAnchor.constraint(equalTo: leftContentViewAnchor),
-            adImageView.rightAnchor.constraint(equalTo: rightContentViewAnchor),
-            adImageView.bottomAnchor.constraint(equalTo: bottomContentViewAnchor),
-        ])
+    private func setConstraint() {
+        adImageView.snp.makeConstraints { make in
+            make.top.equalTo(contentView.snp.top)
+            make.leading.equalTo(contentView.snp.leading)
+            make.trailing.equalTo(contentView.snp.trailing)
+            make.bottom.equalTo(contentView.snp.bottom)
+        }
     }
     
     func configure(image: String) {
-        adImageView.loadUrlImage(urlString: image) { result in
+        adImageView.downloadImage(urlString: image) { result in
             switch result {
             case .success(let image):
                 if let image = image {
