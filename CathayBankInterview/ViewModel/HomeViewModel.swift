@@ -23,10 +23,12 @@ class HomeViewModel {
     // MARK: - Methods
     
     func onAppear() async {
-        await configureAmountData(isFirstLogin: isFirstLogin)
-        await configureFavoriteData(isFirstLogin: isFirstLogin)
-        await configureNotificationData(isFirstLogin: isFirstLogin)
-        await configureBannerData()
+        await withTaskGroup(of: Void.self) { group in
+            await configureAmountData(isFirstLogin: isFirstLogin)
+            await configureFavoriteData(isFirstLogin: isFirstLogin)
+            await configureNotificationData(isFirstLogin: isFirstLogin)
+            await configureBannerData()
+        }
     }
 
     private func configureAmountData(isFirstLogin: Bool) async {
