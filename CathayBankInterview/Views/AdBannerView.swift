@@ -16,11 +16,24 @@ class AdBannerView: UIView {
         super.init(frame: frame)
         setupViews()
         setConstraint()
-        setUpCollcetionView()
+        setUpCollectionView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        stopAutoScroll()
+    }
+    
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+        if newWindow == nil {
+            stopAutoScroll()
+        } else {
+            updateAutoScrollIfNeeded()
+        }
     }
     
     private let collectionView: UICollectionView = {
@@ -35,7 +48,7 @@ class AdBannerView: UIView {
     
     private let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
-        pageControl.numberOfPages = 3
+        pageControl.numberOfPages = 0
         pageControl.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
@@ -52,23 +65,23 @@ class AdBannerView: UIView {
     }
     
     private func setConstraint() {
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top)
-            make.leading.equalTo(self.snp.leading).offset(24)
-            make.trailing.equalTo(self.snp.trailing).offset(-24)
-            make.height.equalTo(100)
-        }
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            collectionView.heightAnchor.constraint(equalToConstant: 100)
+        ])
         
-        pageControl.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(4)
-            make.leading.equalTo(collectionView.snp.leading)
-            make.trailing.equalTo(collectionView.snp.trailing)
-            make.bottom.equalTo(self.snp.bottom).offset(-4)
-            make.height.equalTo(20)
-        }
+        NSLayoutConstraint.activate([
+            pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 4),
+            pageControl.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+            pageControl.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
+            pageControl.heightAnchor.constraint(equalToConstant: 20)
+        ])
     }
     
-    private func setUpCollcetionView() {
+    private func setUpCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -77,14 +90,30 @@ class AdBannerView: UIView {
     
     func configure(isFirstLogin: Bool, adBanners: [BannerModel]) {
         self.adBanners = adBanners
+        pageControl.numberOfPages = adBanners.count
+        pageControl.currentPage = 0
+        collectionView.setContentOffset(.zero, animated: false)
         collectionView.reloadData()
-        if isFirstLogin {
+        updateAutoScrollIfNeeded()
+    }
+    
+    private func updateAutoScrollIfNeeded() {
+        if adBanners.count > 1, window != nil {
             startAutoScroll()
+        } else {
+            stopAutoScroll()
         }
     }
     
     func startAutoScroll() {
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
+        stopAutoScroll()
+        guard adBanners.count > 1 else { return }
+        timer = Timer.scheduledTimer(timeInterval: 3,
+                                     target: self,
+                                     selector: #selector(scrollToNextPage),
+                                     userInfo: nil,
+                                     repeats: true)
+        RunLoop.main.add(timer!, forMode: .common)
     }
     
     func stopAutoScroll() {
@@ -93,13 +122,17 @@ class AdBannerView: UIView {
     }
     
     @objc private func scrollToNextPage() {
+        guard adBanners.count > 1 else { return }
+        guard collectionView.bounds.width > 0 else { return }
+        
         let currentPage = pageControl.currentPage
         let nextPage = (currentPage + 1) % adBanners.count
         
         let nextIndexPath = IndexPath(item: nextPage, section: 0)
-        collectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
-        
-        pageControl.currentPage = nextPage
+        if nextPage < adBanners.count {
+            collectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+            pageControl.currentPage = nextPage
+        }
     }
 }
 
@@ -116,8 +149,6 @@ extension AdBannerView: UICollectionViewDelegate, UICollectionViewDataSource, UI
         }
         
         cell.configure(image: adBanners[indexPath.row].linkUrl)
-        pageControl.numberOfPages = adBanners.count
-        
         return cell
     }
     
@@ -135,7 +166,8 @@ extension AdBannerView: UICollectionViewDelegate, UICollectionViewDataSource, UI
 
 extension AdBannerView: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let page = scrollView.contentOffset.x / scrollView.frame.size.width + 0.6
+        guard scrollView.bounds.width > 0 else { return }
+        let page = (scrollView.contentOffset.x / scrollView.frame.size.width).rounded()
         pageControl.currentPage = Int(page)
     }
 }
@@ -166,12 +198,12 @@ class AdBannerCollectionViewCell: UICollectionViewCell {
     }
     
     private func setConstraint() {
-        adImageView.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
-            make.bottom.equalTo(contentView.snp.bottom)
-        }
+        NSLayoutConstraint.activate([
+            adImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            adImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            adImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            adImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
     
     func configure(image: String) {

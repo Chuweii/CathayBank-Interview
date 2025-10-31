@@ -63,30 +63,25 @@ class NotificationTableViewCell: UITableViewCell {
     }
     
     private func setConstraint() {
-        statusImageView.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(22)
-            make.leading.equalTo(contentView.snp.leading).offset(16)
-            make.height.width.equalTo(12)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(statusImageView.snp.trailing).offset(4)
-            make.trailing.equalTo(contentView.snp.trailing)
-            make.centerY.equalTo(statusImageView.snp.centerY)
-        }
-        
-        timeLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom)
-            make.leading.equalTo(titleLabel.snp.leading)
-            make.trailing.equalTo(titleLabel.snp.trailing)
-        }
-        
-        contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(timeLabel.snp.bottom)
-            make.leading.equalTo(timeLabel.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-32)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-16)
-        }
+        NSLayoutConstraint.activate([
+            statusImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 22),
+            statusImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            statusImageView.heightAnchor.constraint(equalToConstant: 12),
+            statusImageView.widthAnchor.constraint(equalToConstant: 12),
+            
+            titleLabel.leadingAnchor.constraint(equalTo: statusImageView.trailingAnchor, constant: 4),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: statusImageView.centerYAnchor),
+            
+            timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            timeLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            timeLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            
+            contentLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor),
+            contentLabel.leadingAnchor.constraint(equalTo: timeLabel.leadingAnchor),
+            contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
+            contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+        ])
     }
     
     func configure(notificationArray: NotificationModel) {

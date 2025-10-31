@@ -41,19 +41,17 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     }
     
     private func setConstraint() {
-        favoriteImageView.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
-            make.centerX.equalTo(favoriteTitleLabel.snp.centerX)
-        }
-        
-        favoriteTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(favoriteImageView.snp.bottom)
-            make.leading.equalTo(favoriteImageView.snp.leading)
-            make.trailing.equalTo(favoriteImageView.snp.trailing)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-2)
-        }
+        NSLayoutConstraint.activate([
+            favoriteImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            favoriteImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            favoriteImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            favoriteImageView.centerXAnchor.constraint(equalTo: favoriteTitleLabel.centerXAnchor),
+            
+            favoriteTitleLabel.topAnchor.constraint(equalTo: favoriteImageView.bottomAnchor),
+            favoriteTitleLabel.leadingAnchor.constraint(equalTo: favoriteImageView.leadingAnchor),
+            favoriteTitleLabel.trailingAnchor.constraint(equalTo: favoriteImageView.trailingAnchor),
+            favoriteTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2)
+        ])
     }
     
     func configure(title: String) {

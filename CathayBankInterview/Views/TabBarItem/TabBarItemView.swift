@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SnapKit
 
 protocol TabBarItemViewDelegate: AnyObject {
     func tapHandler(_ view: TabBarItemView)
@@ -82,23 +81,32 @@ class TabBarItemView: UIView {
         containerView.addSubview(iconImageView)
         containerView.addSubview(titleLabel)
         addSubview(containerView)
+        
+        // Set translatesAutoresizingMaskIntoConstraints to false for all views
+        iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        containerView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func         setConstraint() {
-        iconImageView.snp.makeConstraints { make in
-            make.size.equalTo(25)
-            make.centerX.equalToSuperview()
-        }
-
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(iconImageView.snp.bottom).offset(0)
-            make.centerX.equalTo(iconImageView.snp.centerX)
-        }
-
-        containerView.snp.makeConstraints { make in
-            make.top.equalTo(5)
-            make.bottom.left.right.equalToSuperview()
-        }
+    private func setConstraint() {
+        NSLayoutConstraint.activate([
+            // Icon image view constraints
+            iconImageView.widthAnchor.constraint(equalToConstant: 25),
+            iconImageView.heightAnchor.constraint(equalToConstant: 25),
+            iconImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            iconImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
+            
+            // Title label constraints
+            titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor),
+            
+            // Container view constraints
+            containerView.topAnchor.constraint(equalTo: self.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -5)
+        ])
     }
 }
 

@@ -45,6 +45,14 @@ class HomeViewController: UIViewController {
         scrollView.addSubview(balanceAccountView)
         scrollView.addSubview(myFavoriteView)
         scrollView.addSubview(adBannerView)
+        
+        // Set translatesAutoresizingMaskIntoConstraints to false for all views
+        userImageView.translatesAutoresizingMaskIntoConstraints = false
+        notificationButton.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        balanceAccountView.translatesAutoresizingMaskIntoConstraints = false
+        myFavoriteView.translatesAutoresizingMaskIntoConstraints = false
+        adBannerView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setBinding() {
@@ -93,36 +101,41 @@ class HomeViewController: UIViewController {
         let buttonSize: CGFloat = 24
         let userImageViewSize: CGFloat = 40
 
-        userImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(verticalSpacing)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(horizontalSpacing)
-            make.height.width.equalTo(userImageViewSize)
-        }
-
-        notificationButton.snp.makeConstraints { make in
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-horizontalSpacing)
-            make.centerY.equalTo(userImageView.snp.centerY)
-            make.height.width.equalTo(buttonSize)
-        }
-        
-        scrollView.snp.makeConstraints { make in
-            make.top.equalTo(userImageView.snp.bottom).offset(verticalSpacing)
-            make.left.right.bottom.equalToSuperview()
-        }
-        
-        balanceAccountView.snp.makeConstraints { make in
-            make.width.equalTo(view.snp.width)
-        }
-        
-        myFavoriteView.snp.makeConstraints { make in
-            make.top.equalTo(balanceAccountView.snp.bottom)
-            make.width.equalTo(view.snp.width)
-        }
-        
-        adBannerView.snp.makeConstraints { make in
-            make.top.equalTo(myFavoriteView.snp.bottom)
-            make.width.equalTo(view.snp.width)
-        }
+        NSLayoutConstraint.activate([
+            // User image view constraints
+            userImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalSpacing),
+            userImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalSpacing),
+            userImageView.heightAnchor.constraint(equalToConstant: userImageViewSize),
+            userImageView.widthAnchor.constraint(equalToConstant: userImageViewSize),
+            
+            // Notification button constraints
+            notificationButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalSpacing),
+            notificationButton.centerYAnchor.constraint(equalTo: userImageView.centerYAnchor),
+            notificationButton.heightAnchor.constraint(equalToConstant: buttonSize),
+            notificationButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            
+            // Scroll view constraints
+            scrollView.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: verticalSpacing),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            // Balance account view constraints
+            balanceAccountView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            balanceAccountView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            balanceAccountView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            
+            // My favorite view constraints
+            myFavoriteView.topAnchor.constraint(equalTo: balanceAccountView.bottomAnchor),
+            myFavoriteView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            myFavoriteView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            
+            // Ad banner view constraints
+            adBannerView.topAnchor.constraint(equalTo: myFavoriteView.bottomAnchor),
+            adBannerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            adBannerView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            adBannerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
     }
     
     // MARK: - Methods
@@ -138,16 +151,8 @@ class HomeViewController: UIViewController {
     
     @objc
     private func notificationAction() {
-        let vc = UINavigationController(rootViewController: NotificationViewController(notifications: viewModel.notifications))
-        vc.modalPresentationStyle = .overFullScreen
-        
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        present(vc, animated: true)
+        let notificationVC = NotificationViewController(notifications: viewModel.notifications)
+        navigationController?.pushViewController(notificationVC, animated: true)
     }
     
     // MARK: - UI Component

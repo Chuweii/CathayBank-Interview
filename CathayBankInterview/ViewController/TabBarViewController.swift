@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class TabBarViewController: UIViewController {
     /// View Controller Type
@@ -82,13 +81,14 @@ class TabBarViewController: UIViewController {
     
     private func bottomStackLayout() {
         view.addSubview(bottomStack)
+        bottomStack.translatesAutoresizingMaskIntoConstraints = false
         
-        bottomStack.snp.makeConstraints { make in
-            make.left.equalTo(view.snp.left).offset(24)
-            make.right.equalTo(view.snp.right).offset(-24)
-            make.bottom.equalTo(view.snp.bottom).offset(-22)
-            make.height.equalTo(bottomStackHeight)
-        }
+        NSLayoutConstraint.activate([
+            bottomStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            bottomStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            bottomStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -22),
+            bottomStack.heightAnchor.constraint(equalToConstant: bottomStackHeight)
+        ])
     }
     
     private func updateViews(pageIndex: ViewControllerPage) {
@@ -102,9 +102,13 @@ class TabBarViewController: UIViewController {
     }
     
     func viewLayout(view: UIView) {
-        view.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: self.view.topAnchor),
+            view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
 }
 

@@ -148,72 +148,64 @@ class MyFavoriteView: UIView {
     }
     
     func setConstraint() {
-        aStackView.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top)
-            make.leading.equalTo(self.snp.leading).offset(34)
-            make.trailing.equalTo(self.snp.trailing).offset(-34)
-            make.height.equalTo(stackSize)
-        }
+        NSLayoutConstraint.activate([
+            // aStackView constraints
+            aStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            aStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 34),
+            aStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -34),
+            aStackView.heightAnchor.constraint(equalToConstant: stackSize),
 
-        bStackView.snp.makeConstraints { make in
-            make.top.equalTo(aStackView.snp.bottom).offset(8)
-            make.leading.equalTo(aStackView.snp.leading)
-            make.trailing.equalTo(aStackView.snp.trailing)
-            make.height.equalTo(stackSize)
-        }
+            // bStackView constraints
+            bStackView.topAnchor.constraint(equalTo: aStackView.bottomAnchor, constant: 8),
+            bStackView.leadingAnchor.constraint(equalTo: aStackView.leadingAnchor),
+            bStackView.trailingAnchor.constraint(equalTo: aStackView.trailingAnchor),
+            bStackView.heightAnchor.constraint(equalToConstant: stackSize),
 
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(bStackView.snp.bottom).offset(16)
-            make.leading.equalTo(self.snp.leading).offset(24)
-            make.trailing.lessThanOrEqualTo(moreLabel.snp.leading)
-        }
+            // titleLabel constraints
+            titleLabel.topAnchor.constraint(equalTo: bStackView.bottomAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: moreLabel.leadingAnchor),
 
-        moreLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(titleLabel.snp.centerY)
-            make.trailing.lessThanOrEqualTo(rightArrowImageView.snp.leading)
-        }
+            // moreLabel constraints
+            moreLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            moreLabel.trailingAnchor.constraint(lessThanOrEqualTo: rightArrowImageView.leadingAnchor),
 
-        rightArrowImageView.snp.makeConstraints { make in
-            make.trailing.equalTo(self.snp.trailing).offset(-24)
-            make.centerY.equalTo(moreLabel.snp.centerY)
-            make.height.width.equalTo(btnImageSize)
-        }
+            // rightArrowImageView constraints
+            rightArrowImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            rightArrowImageView.centerYAnchor.constraint(equalTo: moreLabel.centerYAnchor),
+            rightArrowImageView.heightAnchor.constraint(equalToConstant: btnImageSize),
+            rightArrowImageView.widthAnchor.constraint(equalToConstant: btnImageSize),
 
-        // use data show CollectionView
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
-            make.leading.equalTo(titleLabel.snp.leading)
-            make.trailing.equalTo(rightArrowImageView.snp.trailing)
-            make.bottom.equalTo(self.snp.bottom).offset(-16)
-            make.height.equalTo(88)
-        }
+            // collectionView constraints
+            collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            collectionView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: rightArrowImageView.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            collectionView.heightAnchor.constraint(equalToConstant: 88),
 
-        // no use dat show DefaultsView
-        defaultsView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
-            make.leading.equalTo(titleLabel.snp.leading)
-            make.trailing.equalTo(rightArrowImageView.snp.trailing)
-            make.bottom.equalTo(self.snp.bottom).offset(-16)
-        }
+            // defaultsView constraints
+            defaultsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            defaultsView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            defaultsView.trailingAnchor.constraint(equalTo: rightArrowImageView.trailingAnchor),
+            defaultsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
 
-        defaultsImageView.snp.makeConstraints { make in
-            make.top.equalTo(defaultsView.snp.top).offset(2)
-            make.leading.equalTo(defaultsView.snp.leading).offset(2)
-            make.height.width.equalTo(imageSize)
-        }
+            // defaultsImageView constraints
+            defaultsImageView.topAnchor.constraint(equalTo: defaultsView.topAnchor, constant: 2),
+            defaultsImageView.leadingAnchor.constraint(equalTo: defaultsView.leadingAnchor, constant: 2),
+            defaultsImageView.heightAnchor.constraint(equalToConstant: imageSize),
+            defaultsImageView.widthAnchor.constraint(equalToConstant: imageSize),
 
-        defaultsTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(defaultsImageView.snp.bottom).offset(2)
-            make.leading.equalTo(defaultsView.snp.leading).offset(2)
-            make.bottom.equalTo(defaultsView.snp.bottom)
-            make.centerX.equalTo(defaultsImageView.snp.centerX)
-        }
+            // defaultsTitleLabel constraints
+            defaultsTitleLabel.topAnchor.constraint(equalTo: defaultsImageView.bottomAnchor, constant: 2),
+            defaultsTitleLabel.leadingAnchor.constraint(equalTo: defaultsView.leadingAnchor, constant: 2),
+            defaultsTitleLabel.bottomAnchor.constraint(equalTo: defaultsView.bottomAnchor),
+            defaultsTitleLabel.centerXAnchor.constraint(equalTo: defaultsImageView.centerXAnchor),
 
-        defaultsExplanationsLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(defaultsImageView.snp.centerY)
-            make.leading.equalTo(defaultsImageView.snp.trailing).offset(12)
-            make.trailing.equalTo(defaultsView.snp.trailing).offset(-2)
-        }
+            // defaultsExplanationsLabel constraints
+            defaultsExplanationsLabel.centerYAnchor.constraint(equalTo: defaultsImageView.centerYAnchor),
+            defaultsExplanationsLabel.leadingAnchor.constraint(equalTo: defaultsImageView.trailingAnchor, constant: 12),
+            defaultsExplanationsLabel.trailingAnchor.constraint(equalTo: defaultsView.trailingAnchor, constant: -2)
+        ])
     }
     
     private func setUpCollcetionView() {
@@ -234,6 +226,7 @@ class MyFavoriteView: UIView {
         imageView.image = UIImage(named: image)
         imageView.layer.cornerRadius = 20
         imageView.contentMode = .scaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         let titleLabel = UILabel()
         titleLabel.text = title
@@ -241,22 +234,22 @@ class MyFavoriteView: UIView {
         titleLabel.textColor = .gray300
         titleLabel.textAlignment = .center
         titleLabel.font = .systemFont(ofSize: 13)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
         containerView.addSubview(titleLabel)
         containerView.addSubview(imageView)
 
-        imageView.snp.makeConstraints { make in
-            make.top.equalTo(containerView).offset(2)
-            make.centerX.equalTo(containerView)
-            make.height.width.equalTo(imageSize)
-        }
-
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(2)
-            make.leading.equalTo(containerView).offset(2)
-            make.trailing.equalTo(containerView).offset(-2)
-            make.bottom.equalTo(containerView)
-        }
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 2),
+            imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: imageSize),
+            imageView.widthAnchor.constraint(equalToConstant: imageSize),
+            
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 2),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -2),
+            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+        ])
 
         return containerView
     }

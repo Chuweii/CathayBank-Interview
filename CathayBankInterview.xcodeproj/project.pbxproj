@@ -16,7 +16,6 @@
 		EF1E992F2C756450004015AB /* CathayBankInterviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E992E2C756450004015AB /* CathayBankInterviewTests.swift */; };
 		EF1E99392C756450004015AB /* CathayBankInterviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99382C756450004015AB /* CathayBankInterviewUITests.swift */; };
 		EF1E993B2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E993A2C756450004015AB /* CathayBankInterviewUITestsLaunchTests.swift */; };
-		EF1E994A2C75648F004015AB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF1E99492C75648F004015AB /* SnapKit */; };
 		EF1E994C2C756591004015AB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E994B2C756591004015AB /* TabBarViewController.swift */; };
 		EF1E99522C75662D004015AB /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99512C75662D004015AB /* TabItem.swift */; };
 		EF1E99552C75684A004015AB /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99542C75684A004015AB /* TabBarItemView.swift */; };
@@ -97,7 +96,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF1E994A2C75648F004015AB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +292,6 @@
 			);
 			name = CathayBankInterview;
 			packageProductDependencies = (
-				EF1E99492C75648F004015AB /* SnapKit */,
 			);
 			productName = CathayBankInterview;
 			productReference = EF1E99142C75644E004015AB /* CathayBankInterview.app */;
@@ -369,7 +366,6 @@
 			);
 			mainGroup = EF1E990B2C75644E004015AB;
 			packageReferences = (
-				EF1E99472C756478004015AB /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = EF1E99152C75644E004015AB /* Products */;
 			projectDirPath = "";
@@ -783,25 +779,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		EF1E99472C756478004015AB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = exactVersion;
-				version = 5.7.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		EF1E99492C75648F004015AB /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF1E99472C756478004015AB /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF1E990C2C75644E004015AB /* Project object */;
 }
