@@ -7,8 +7,23 @@
 
 import Foundation
 
-final class AccountBalanceRepository {    
-    private let apiManager: APIManager = .init()
+// MARK: - Protocol
+
+protocol AccountBalanceRepositoryProtocol {
+    func getFirstLoginUSDBalance(completion: @escaping (Result<Float, Error>) -> Void)
+    func getFirstLoginKHRBalance(completion: @escaping (Result<Float, Error>) -> Void)
+    func getRefreshUSDBalance(completion: @escaping (Result<Float, Error>) -> Void)
+    func getRefreshKHRBalance(completion: @escaping (Result<Float, Error>) -> Void)
+}
+
+// MARK: - Implementation
+
+final class AccountBalanceRepository: AccountBalanceRepositoryProtocol {    
+    private let apiManager: APIManager
+
+    init(apiManager: APIManager = .init()) {
+        self.apiManager = apiManager
+    }
 
     private func getTotalBalance(for endpoint: String, completion: @escaping (Result<Float, Error>) -> Void) {
         apiManager.request(endpoint: endpoint, method: .get) { result in
@@ -21,6 +36,8 @@ final class AccountBalanceRepository {
                     if let resultList = amountResponse.result.first?.value {
                         let totalBalance = resultList.reduce(0.0) { $0 + $1.balance }
                         completion(.success(totalBalance))
+                    } else {
+                        completion(.success(0.0))
                     }
                 } catch {
                     completion(.failure(error))
@@ -38,6 +55,7 @@ final class AccountBalanceRepository {
         
         let dispatchGroup = DispatchGroup()
         var totalBalances: [Float] = []
+        var firstError: Error?
         
         dispatchGroup.enter()
         getTotalBalance(for: savingsURL) { result in
@@ -45,7 +63,7 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
@@ -56,7 +74,7 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
@@ -67,14 +85,18 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
         
         dispatchGroup.notify(queue: .main) {
-            let totalSum = totalBalances.reduce(0.0, +)
-            completion(.success(totalSum))
+            if let error = firstError {
+                completion(.failure(error))
+            } else {
+                let totalSum = totalBalances.reduce(0.0, +)
+                completion(.success(totalSum))
+            }
         }
     }
     
@@ -85,6 +107,7 @@ final class AccountBalanceRepository {
         
         let dispatchGroup = DispatchGroup()
         var totalBalances: [Float] = []
+        var firstError: Error?
         
         dispatchGroup.enter()
         getTotalBalance(for: savingsURL) { result in
@@ -92,7 +115,7 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
@@ -103,7 +126,7 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
@@ -114,14 +137,18 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
         
         dispatchGroup.notify(queue: .main) {
-            let totalSum = totalBalances.reduce(0.0, +)
-            completion(.success(totalSum))
+            if let error = firstError {
+                completion(.failure(error))
+            } else {
+                let totalSum = totalBalances.reduce(0.0, +)
+                completion(.success(totalSum))
+            }
         }
     }
     
@@ -132,6 +159,7 @@ final class AccountBalanceRepository {
         
         let dispatchGroup = DispatchGroup()
         var totalBalances: [Float] = []
+        var firstError: Error?
         
         dispatchGroup.enter()
         getTotalBalance(for: savingsURL) { result in
@@ -139,7 +167,7 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
@@ -150,7 +178,7 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
@@ -161,14 +189,18 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
         
         dispatchGroup.notify(queue: .main) {
-            let totalSum = totalBalances.reduce(0.0, +)
-            completion(.success(totalSum))
+            if let error = firstError {
+                completion(.failure(error))
+            } else {
+                let totalSum = totalBalances.reduce(0.0, +)
+                completion(.success(totalSum))
+            }
         }
     }
     
@@ -179,6 +211,7 @@ final class AccountBalanceRepository {
         
         let dispatchGroup = DispatchGroup()
         var totalBalances: [Float] = []
+        var firstError: Error?
         
         dispatchGroup.enter()
         getTotalBalance(for: savingsURL) { result in
@@ -186,7 +219,7 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
@@ -197,7 +230,7 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
@@ -208,14 +241,18 @@ final class AccountBalanceRepository {
             case .success(let totalBalance):
                 totalBalances.append(totalBalance)
             case .failure(let error):
-                completion(.failure(error))
+                firstError = firstError ?? error
             }
             dispatchGroup.leave()
         }
         
         dispatchGroup.notify(queue: .main) {
-            let totalSum = totalBalances.reduce(0.0, +)
-            completion(.success(totalSum))
+            if let error = firstError {
+                completion(.failure(error))
+            } else {
+                let totalSum = totalBalances.reduce(0.0, +)
+                completion(.success(totalSum))
+            }
         }
     }
 }

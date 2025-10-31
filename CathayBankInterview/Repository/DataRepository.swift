@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Repositories.swift
 //  CathayBankInterview
 //
 //  Created by Wei Chu on 2024/8/21.
@@ -7,11 +7,32 @@
 
 import Foundation
 
-final class DataRepository {
-    private let apiManager: APIManager = .init()
-    
-    private func fetchData<T: Decodable>(for dataType: T.Type, endpoint: String, completion: @escaping (Result<T, Error>) -> Void) {
-        APIManager().request(endpoint: endpoint, method: .get) { result in
+// MARK: - Protocols
+
+protocol NotificationRepositoryProtocol {
+    func getEmptyNotificationData(completion: @escaping (Result<[NotificationModel], Error>) -> Void)
+    func getRefreshNotificationData(completion: @escaping (Result<[NotificationModel], Error>) -> Void)
+}
+
+protocol FavoriteRepositoryProtocol {
+    func getFirstLoginEmptyFavoriteData(completion: @escaping (Result<[FavoriteModel], Error>) -> Void)
+    func getRefreshFavoriteData(completion: @escaping (Result<[FavoriteModel], Error>) -> Void)
+}
+
+protocol BannerRepositoryProtocol {
+    func getBannerData(completion: @escaping (Result<[BannerModel], Error>) -> Void)
+}
+
+// MARK: - Base helper (optional common decoding)
+
+private protocol DecodingRequesting {
+    var apiManager: APIManager { get }
+    func fetchData<T: Decodable>(for dataType: T.Type, endpoint: String, completion: @escaping (Result<T, Error>) -> Void)
+}
+
+extension DecodingRequesting {
+    func fetchData<T: Decodable>(for dataType: T.Type, endpoint: String, completion: @escaping (Result<T, Error>) -> Void) {
+        apiManager.request(endpoint: endpoint, method: .get) { result in
             switch result {
             case .success(let data):
                 do {
@@ -26,77 +47,91 @@ final class DataRepository {
             }
         }
     }
-    
-    //MARK: - Notification
-    
+}
+
+// MARK: - NotificationRepository
+
+final class NotificationRepository: NotificationRepositoryProtocol, DecodingRequesting {
+    let apiManager: APIManager
+
+    init(apiManager: APIManager = APIManager()) {
+        self.apiManager = apiManager
+    }
+
     func getEmptyNotificationData(completion: @escaping (Result<[NotificationModel], Error>) -> Void) {
-        let notificationURL = APIInfo.emptyNotificationList
-        
-        fetchData(for: NotificationResponse.self, endpoint: notificationURL) { result in
+        let endpoint = APIInfo.emptyNotificationList
+        fetchData(for: NotificationResponse.self, endpoint: endpoint) { result in
             switch result {
             case .success(let response):
-                let notificationArray = response.result.messages
-                completion(.success(notificationArray))
+                completion(.success(response.result.messages))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-    
+
     func getRefreshNotificationData(completion: @escaping (Result<[NotificationModel], Error>) -> Void) {
-        let notificationURL = APIInfo.notificationList
-        
-        fetchData(for: NotificationResponse.self, endpoint: notificationURL) { result in
+        let endpoint = APIInfo.notificationList
+        fetchData(for: NotificationResponse.self, endpoint: endpoint) { result in
             switch result {
             case .success(let response):
-                let notificationArray = response.result.messages
-                completion(.success(notificationArray))
+                completion(.success(response.result.messages))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-    
-    //MARK: - Favorite
-    
+}
+
+// MARK: - FavoriteRepository
+
+final class FavoriteRepository: FavoriteRepositoryProtocol, DecodingRequesting {
+    let apiManager: APIManager
+
+    init(apiManager: APIManager = APIManager()) {
+        self.apiManager = apiManager
+    }
+
     func getFirstLoginEmptyFavoriteData(completion: @escaping (Result<[FavoriteModel], Error>) -> Void) {
-        let favoriteURL = APIInfo.emptyFavoriteList
-        
-        fetchData(for: FavoriteResponse.self, endpoint: favoriteURL) { result in
+        let endpoint = APIInfo.emptyFavoriteList
+        fetchData(for: FavoriteResponse.self, endpoint: endpoint) { result in
             switch result {
             case .success(let response):
-                let favoriteArray = response.result.favoriteList
-                completion(.success(favoriteArray))
+                completion(.success(response.result.favoriteList))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-    
+
     func getRefreshFavoriteData(completion: @escaping (Result<[FavoriteModel], Error>) -> Void) {
-        let favoriteURL = APIInfo.favoriteList
-        
-        fetchData(for: FavoriteResponse.self, endpoint: favoriteURL) { result in
+        let endpoint = APIInfo.favoriteList
+        fetchData(for: FavoriteResponse.self, endpoint: endpoint) { result in
             switch result {
             case .success(let response):
-                let favoriteArray = response.result.favoriteList
-                completion(.success(favoriteArray))
+                completion(.success(response.result.favoriteList))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-    
-    //MARK: - Banner
-    
+}
+
+// MARK: - BannerRepository
+
+final class BannerRepository: BannerRepositoryProtocol, DecodingRequesting {
+    let apiManager: APIManager
+
+    init(apiManager: APIManager = APIManager()) {
+        self.apiManager = apiManager
+    }
+
     func getBannerData(completion: @escaping (Result<[BannerModel], Error>) -> Void) {
-        let adBannerURL = APIInfo.adBanner
-        
-        fetchData(for: BannerResponse.self, endpoint: adBannerURL) { result in
+        let endpoint = APIInfo.adBanner
+        fetchData(for: BannerResponse.self, endpoint: endpoint) { result in
             switch result {
             case .success(let response):
-                let bannerList = response.result.bannerList
-                completion(.success(bannerList))
+                completion(.success(response.result.bannerList))
             case .failure(let error):
                 completion(.failure(error))
             }

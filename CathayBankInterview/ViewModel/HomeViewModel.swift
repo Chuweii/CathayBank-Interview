@@ -8,10 +8,26 @@
 import Foundation
 
 class HomeViewModel {
-    // MARK: - Properties
+    // MARK: - Dependencies
     
-    let accountBalanceRepository = AccountBalanceRepository()
-    let dataRepository = DataRepository()
+    private let accountBalanceRepository: AccountBalanceRepositoryProtocol
+    private let notificationRepository: NotificationRepositoryProtocol
+    private let favoriteRepository: FavoriteRepositoryProtocol
+    private let bannerRepository: BannerRepositoryProtocol
+    
+    // MARK: - Init (Dependency Injection)
+    
+    init(accountBalanceRepository: AccountBalanceRepositoryProtocol = AccountBalanceRepository(),
+         notificationRepository: NotificationRepositoryProtocol = NotificationRepository(),
+         favoriteRepository: FavoriteRepositoryProtocol = FavoriteRepository(),
+         bannerRepository: BannerRepositoryProtocol = BannerRepository()) {
+        self.accountBalanceRepository = accountBalanceRepository
+        self.notificationRepository = notificationRepository
+        self.favoriteRepository = favoriteRepository
+        self.bannerRepository = bannerRepository
+    }
+    
+    // MARK: - Published States
     
     @Published var isFirstLogin: Bool = true
     @Published var usdAmount: String = ""
@@ -81,7 +97,7 @@ class HomeViewModel {
     }
     
     private func getFirstLoginEmptyFavoriteData(completion: @escaping ([FavoriteModel]) -> Void) {
-        dataRepository.getFirstLoginEmptyFavoriteData { result in
+        favoriteRepository.getFirstLoginEmptyFavoriteData { result in
             switch result {
             case .success(let favoriteArray):
                 completion(favoriteArray)
@@ -92,7 +108,7 @@ class HomeViewModel {
     }
     
     private func getRefreshFavoriteData(completion: @escaping ([FavoriteModel]) -> Void) {
-        dataRepository.getRefreshFavoriteData { result in
+        favoriteRepository.getRefreshFavoriteData { result in
             switch result {
             case .success(let favoriteArray):
                 completion(favoriteArray)
@@ -104,11 +120,11 @@ class HomeViewModel {
     
     private func configureNotificationData(isFirstLogin: Bool) async {
         if isFirstLogin {
-            fetchNotificationData(fetchData: dataRepository.getEmptyNotificationData) { result in
+            fetchNotificationData(fetchData: notificationRepository.getEmptyNotificationData) { result in
                 self.notifications = result
             }
         } else {
-            fetchNotificationData(fetchData: dataRepository.getRefreshNotificationData) { result in
+            fetchNotificationData(fetchData: notificationRepository.getRefreshNotificationData) { result in
                 self.notifications = result
             }
         }
@@ -126,7 +142,7 @@ class HomeViewModel {
     }
 
     private func configureBannerData() async {
-        dataRepository.getBannerData { result in
+        bannerRepository.getBannerData { result in
             switch result {
             case .success(let bannerArray):
                 self.banners = bannerArray
