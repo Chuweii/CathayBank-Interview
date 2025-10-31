@@ -25,7 +25,7 @@
 		EF1E99622C758116004015AB /* AmountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99612C758116004015AB /* AmountResponse.swift */; };
 		EF1E996B2C7588CB004015AB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E996A2C7588CB004015AB /* String+.swift */; };
 		EF1E996D2C758AA1004015AB /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E996C2C758AA1004015AB /* UIColor+.swift */; };
-		EF1E99732C75A32F004015AB /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99722C75A32F004015AB /* DataRepository.swift */; };
+		EF1E99732C75A32F004015AB /* DecodingRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99722C75A32F004015AB /* DecodingRequesting.swift */; };
 		EF1E99752C75A34C004015AB /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99742C75A34C004015AB /* NotificationResponse.swift */; };
 		EF1E99772C75A38A004015AB /* BannerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99762C75A38A004015AB /* BannerResponse.swift */; };
 		EF1E99792C75A3A6004015AB /* FavoriteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99782C75A3A6004015AB /* FavoriteResponse.swift */; };
@@ -36,6 +36,9 @@
 		EF1E998B2C761BE9004015AB /* AdBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E998A2C761BE9004015AB /* AdBannerView.swift */; };
 		EF1E998D2C761C8D004015AB /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E998C2C761C8D004015AB /* UIImageView+.swift */; };
 		EF1E99912C7623A1004015AB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99902C7623A1004015AB /* HomeViewModel.swift */; };
+		EF4138732EB47AE90022DC9A /* NotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4138722EB47AE90022DC9A /* NotificationRepository.swift */; };
+		EF4138752EB47B410022DC9A /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4138742EB47B410022DC9A /* FavoriteRepository.swift */; };
+		EF4138772EB47B680022DC9A /* BannerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4138762EB47B680022DC9A /* BannerRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +81,7 @@
 		EF1E99612C758116004015AB /* AmountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountResponse.swift; sourceTree = "<group>"; };
 		EF1E996A2C7588CB004015AB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EF1E996C2C758AA1004015AB /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		EF1E99722C75A32F004015AB /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
+		EF1E99722C75A32F004015AB /* DecodingRequesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingRequesting.swift; sourceTree = "<group>"; };
 		EF1E99742C75A34C004015AB /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
 		EF1E99762C75A38A004015AB /* BannerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerResponse.swift; sourceTree = "<group>"; };
 		EF1E99782C75A3A6004015AB /* FavoriteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteResponse.swift; sourceTree = "<group>"; };
@@ -89,6 +92,9 @@
 		EF1E998A2C761BE9004015AB /* AdBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerView.swift; sourceTree = "<group>"; };
 		EF1E998C2C761C8D004015AB /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		EF1E99902C7623A1004015AB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EF4138722EB47AE90022DC9A /* NotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRepository.swift; sourceTree = "<group>"; };
+		EF4138742EB47B410022DC9A /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
+		EF4138762EB47B680022DC9A /* BannerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,8 +247,11 @@
 		EF1E995C2C758025004015AB /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				EF4138762EB47B680022DC9A /* BannerRepository.swift */,
+				EF4138742EB47B410022DC9A /* FavoriteRepository.swift */,
+				EF4138722EB47AE90022DC9A /* NotificationRepository.swift */,
 				EF1E995D2C758033004015AB /* AccountBalanceRepository.swift */,
-				EF1E99722C75A32F004015AB /* DataRepository.swift */,
+				EF1E99722C75A32F004015AB /* DecodingRequesting.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -422,16 +431,19 @@
 				EF1E99792C75A3A6004015AB /* FavoriteResponse.swift in Sources */,
 				EF1E99912C7623A1004015AB /* HomeViewModel.swift in Sources */,
 				EF1E99812C75BC82004015AB /* NotificationViewController.swift in Sources */,
+				EF4138752EB47B410022DC9A /* FavoriteRepository.swift in Sources */,
 				EF1E991A2C75644E004015AB /* SceneDelegate.swift in Sources */,
 				EF1E998B2C761BE9004015AB /* AdBannerView.swift in Sources */,
 				EF1E995E2C758033004015AB /* AccountBalanceRepository.swift in Sources */,
 				EF1E99772C75A38A004015AB /* BannerResponse.swift in Sources */,
-				EF1E99732C75A32F004015AB /* DataRepository.swift in Sources */,
+				EF1E99732C75A32F004015AB /* DecodingRequesting.swift in Sources */,
 				EF1E99622C758116004015AB /* AmountResponse.swift in Sources */,
 				EF1E998D2C761C8D004015AB /* UIImageView+.swift in Sources */,
 				EF1E996D2C758AA1004015AB /* UIColor+.swift in Sources */,
+				EF4138772EB47B680022DC9A /* BannerRepository.swift in Sources */,
 				EF1E996B2C7588CB004015AB /* String+.swift in Sources */,
 				EF1E997B2C75A402004015AB /* MyFavoriteView.swift in Sources */,
+				EF4138732EB47AE90022DC9A /* NotificationRepository.swift in Sources */,
 				EF1E99552C75684A004015AB /* TabBarItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
